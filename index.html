@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temporizador</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('background.jpg'); 
+            background-size: cover;
+            background-position: center;
+        }
+        #timer {
+            font-size: 8em;
+            color: rgba(255, 255, 255, 0.8); 
+        }
+    </style>
+</head>
+<body>
+    <div id="timer">50</div>
+
+    <script>
+        let countdown = 50;
+        const timerElement = document.getElementById('timer');
+
+        function updateTimer() {
+            if (countdown > 0) {
+                countdown--;
+                timerElement.textContent = countdown;
+                setTimeout(updateTimer, 1000);
+            }
+        }
+
+        setTimeout(updateTimer, 1000);
+    </script>
+</body>
+</html>
